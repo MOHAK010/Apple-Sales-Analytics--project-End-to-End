@@ -27,7 +27,7 @@ This repository contains solutions to 50+ business-oriented SQL questions using 
 ## Project Status
 
 - [x] SQLBolt Completed
-- [x] PostgreSQL Setup
+- [x] PostgreSQL Setup and Dataset Import
 - [x] Dataset Imported
 - [x] GitHub Repository Created
 - [ ] 50 SQL Questions Completed
