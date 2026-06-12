@@ -216,3 +216,190 @@ ON s.product_id = p.product_id
 INNER JOIN warranty w
 ON s.sale_id = w.sale_id
 ORDER BY p.product_name
+
+                               -- SUBQUERIES --
+
+----------------------------------1
+SELECT product_id 
+FROM products 
+WHERE product_id NOT IN (SELECT product_id
+FROM sales)
+
+----------------------------------2
+SELECT AVG(price)
+FROM products
+WHERE product_id IN (SELECT product_id ,
+FROM sales)
+
+----------------------------------3  Important for understanding Subqueries  
+
+SELECT store_id ,SUM(quantity) as total_sales
+FROM sales
+GROUP BY store_id
+HAVING SUM(quantity) > (SELECT AVG(total_sales)
+FROM(
+SELECT store_id ,SUM(quantity) as total_sales
+FROM sales
+GROUP BY store_id) t
+)
+
+-----------------------------------4
+--Find warranty claims for products sold more than once.
+
+SELECT * 
+FROM warranty 
+WHERE sale_id IN (
+                 SELECT s.sale_id
+				 FROM sales s
+				 INNER JOIN products p
+				 ON s.product_id = p.product_id
+				 GROUP BY p.product_id
+				 HAVING SUM(quantity) > 1
+)
+
+-----------------------------------5
+
+SELECT SUM(quantity)
+FROM sales
+WHERE product_id = (
+               SELECT product_id
+			   FROM products
+			   WHERE product_id='P-5'
+			   GROUP BY product_id		  
+)
+
+                           -- DATE FUNCTIONS --
+
+----------------------------------1
+
+SELECT sale_date , sale_id
+FROM sales
+WHERE TO_DATE (sale_date , 'yyyy-mm-dd')>= CURRENT_DATE - INTERVAL ' 1 year'
+
+----------------------------------2
+
+SELECT EXTRACT(YEAR FROM TO_DATE(sale_date,'YYYY-MM-DD'))
+FROM sales                                                  -- Using Extract Function For Extracting the Date 
+
+----------------------------------3
+
+SELECT claim_date
+FROM warranty
+WHERE EXTRACT(YEAR FROM claim_date) = 2020       -- EVERY QUESTION HAS EXTRACT FUNCTION 
+
+
+----------------------------------4
+
+SELECT sale_date ,CURRENT_DATE - TO_DATE(sale_date ,'yyyy-mm-dd') as Difference 
+FROM sales 
+
+----------------------------------5
+
+SELECT EXTRACT(YEAR FROM TO_DATE(sale_date,'yyyy-mm-dd')) AS YEAR ,
+       EXTRACT(MONTH FROM TO_DATE(sale_date ,'yyyy-mm-dd')) AS MONTH,
+			 COUNT(*) 
+FROM sales
+GROUP BY EXTRACT(YEAR FROM TO_DATE(sale_date,'yyyy-mm-dd')),
+         EXTRACT(MONTH FROM TO_DATE(sale_date ,'yyyy-mm-dd')) 
+
+		                             -- STRING FUNCTION --
+									 
+-----------------------------------1
+SELECT CONCAT(product_name,'  ', product_name)
+FROM products                                                -- as there is the quetion to write first_str and last_str of customer name but there is no customer name in the tables
+                                                             -- so I decided to make a gap btw products_name for practice
+
+-----------------------------------2
+
+SELECT product_name
+FROM products
+WHERE POSITION('iPhone' IN product_name) > 0 
+
+-----------------------------------3
+
+SELECT LENGTH(product_name), product_name
+FROM products
+
+-----------------------------------4
+
+SELECT UPPER(product_name)
+FROM products
+
+-----------------------------------5
+SELECT SUBSTRING(product_name,1,6)
+FROM products				
+
+                              -- CASE STATEMENTS --
+							  
+------------------------------------1
+SELECT product_name,
+                    CASE 
+					    WHEN price >=1000 THEN 'premium'
+						WHEN price <500 THEN 'budget'
+						ELSE 'Mid-Range'
+					END AS category
+FROM products
+
+------------------------------------2
+ALTER TABLE warranty
+ADD COLUMN status VARCHAR(20)
+
+SELECT *,
+                CASE 
+				    WHEN claim_status = 'Free Replaced'    -- THIS IS FOR CASE STATEMENT 
+					THEN 'Approved'
+					WHEN claim_status = 'Paid Repaired'
+					THEN 'Approved'
+					ELSE 
+					'Declined'
+					END as status
+FROM warranty
+
+UPDATE warranty
+SET status =                                                -- THIS IS FOR UPDATING THE DATA IN TABLE 
+    CASE
+        WHEN claim_status = 'Free Replaced' THEN 'Approved'
+        WHEN claim_status = 'Paid Repaired' THEN 'Approved'
+        ELSE 'Declined'
+    END;
+------------------------------------3
+
+SELECT * ,
+       CASE 
+	        WHEN quantity = 1
+	           THEN 'category 1'
+	        WHEN quantity = 2
+			   THEN 'category 2'
+			WHEN quantity = 3
+			   THEN 'category 3'
+			END AS CATEGORY
+FROM sales
+
+------------------------------------4
+
+SELECT *,
+         CASE 
+		     WHEN sale_date >= '01-01-2023' 
+			  THEN 'Recent sale'
+			 WHEN sale_date <= '01-01-2023' 
+			  THEN 'Old sale'
+			 END AS SALE_TYPE
+FROM sales
+
+
+------------------------------------5
+SELECT store_id , SUM(quantity),
+
+                CASE WHEN SUM(quantity) >= '20000'
+				 THEN 'TYPE 1'
+			         WHEN SUM(quantity) <= '10000'
+				 THEN 'TYPE 2'
+				     ELSE
+				      'TYPE 3'
+				END AS TYPE
+FROM sales
+group BY store_id
+
+                                  -- WINDOW FUNCTIONS --
+
+
