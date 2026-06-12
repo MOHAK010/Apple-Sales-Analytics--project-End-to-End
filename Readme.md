@@ -34,3 +34,18 @@ This repository contains solutions to 50+ business-oriented SQL questions using 
 - [ ] CTE Practice
 - [ ] Window Functions
 - [ ] Final Project Documentation
+
+
+## Sample Query Results
+
+### Multi-Table JOIN
+
+![JOIN Result](Screenshot%20(146).png)
+
+### GROUP BY Analysis
+
+![GROUP BY Result](Screenshot%20(147).png)
+
+### Subquery Example
+
+![Subquery Result](Screenshot%20(148).png)
