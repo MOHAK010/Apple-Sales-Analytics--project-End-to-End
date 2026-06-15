@@ -49,3 +49,12 @@ This repository contains solutions to 50+ business-oriented SQL questions using 
 ### Subquery Example
 
 ![Subquery Result](Screenshot%20(148).png)
+
+### Subquery with HAVING
+
+![Subquery with HAVING](Screenshot%20(186).png)
+
+### Date Functions Analysis
+
+![Date Functions](Screenshot%20(185).png)
+
