@@ -17,11 +17,28 @@ This project analyzes an Apple retail sales dataset using PostgreSQL.
 - Aggregate Functions
 - Date Functions
 - CTEs
+- Subqueries
+- HAVING
 - Window Functions
+
+  ## Window Functions Practice
+
+Completed practice on:
+
+- ROW_NUMBER()
+- RANK()
+- Running Total using SUM() OVER()
+- PARTITION BY
+- ORDER BY in Window Functions
+
+Sample business questions solved:
+
+- Show row numbers within each store
+- Rank products by sales volume
+- Calculate running totals by store
 
 ## Project Overview
 This repository contains solutions to 50+ business-oriented SQL questions using real-world retail sales data.
-
 
 
 ## Project Status
@@ -32,7 +49,7 @@ This repository contains solutions to 50+ business-oriented SQL questions using 
 - [x] GitHub Repository Created
 - [ ] 50 SQL Questions Completed
 - [ ] CTE Practice
-- [ ] Window Functions
+- [x] Window Functions
 - [ ] Final Project Documentation
 
 
