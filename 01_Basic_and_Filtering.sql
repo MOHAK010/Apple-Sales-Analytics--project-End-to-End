@@ -154,9 +154,11 @@ FROM products p
 INNER JOIN category c
 ON c.category_id = p.category_id -------------- BY INNER JOIN 
 GROUP BY category_name
+
+
 SELECT category_id, COUNT(*)
 FROM products                --------------- Normal 
-GROUP BY category_id;
+GROUP BY category_id
 
 -------------------------------4
 SELECT category_id , SUM(s.quantity)
@@ -253,7 +255,7 @@ WHERE sale_id IN (
 				 FROM sales s
 				 INNER JOIN products p
 				 ON s.product_id = p.product_id
-				 GROUP BY p.product_id
+				 GROUP BY s.sale_id
 				 HAVING SUM(quantity) > 1
 )
 
@@ -302,7 +304,11 @@ FROM sales
 GROUP BY EXTRACT(YEAR FROM TO_DATE(sale_date,'yyyy-mm-dd')),
          EXTRACT(MONTH FROM TO_DATE(sale_date ,'yyyy-mm-dd')) 
 
-		                             -- STRING FUNCTION --
+		                           
+								   
+								   
+								   
+								   -- STRING FUNCTION --
 									 
 -----------------------------------1
 SELECT CONCAT(product_name,'  ', product_name)
@@ -401,5 +407,51 @@ FROM sales
 group BY store_id
 
                                   -- WINDOW FUNCTIONS --
+------------------ Making My own question for Practice ------------------
+-- Row_number question
 
+SELECT store_id,
+       sale_id,
+       quantity,
+       ROW_NUMBER() OVER(
+           PARTITION BY store_id
+           ORDER BY quantity
+       ) AS row_num
+FROM sales;
+
+-- RANK QUESTION
+
+SELECT product_id, SUM(quantity) AS Total_quantity,
+              RANK() OVER( 
+              ORDER BY SUM(quantity) DESC) AS ROW_NUM
+FROM sales
+GROUP BY product_id
+			  
+---------------------------------------1
+
+SELECT *,store_id , quantity,
+       SUM(quantity) OVER(PARTITION BY store_id 
+	   ORDER BY sale_date,sale_id) AS running_total 
+FROM sales
+ORDER BY store_id
+
+---------------------------------------2
+
+SELECT product_id
+                 ,SUM(quantity) AS total_sales,
+				 RANK() OVER( 
+				 ORDER BY SUM(quantity) DESC) AS sale_rank
+FROM sales
+GROUP BY product_id
+
+---------------------------------------3
+SELECT
+    EXTRACT(MONTH FROM sale_date::DATE) AS month,
+    SUM(s.quantity * p.price) AS monthly_sales,
+    AVG(SUM(s.quantity * p.price)) OVER() AS avg_sales_per_month
+FROM sales s
+INNER JOIN products p
+    ON s.product_id = p.product_id
+WHERE sale_date::DATE >= CURRENT_DATE - INTERVAL '3 year'
+GROUP BY EXTRACT(MONTH FROM sale_date::DATE);
 
