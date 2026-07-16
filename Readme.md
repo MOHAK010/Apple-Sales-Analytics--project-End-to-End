@@ -1,77 +1,203 @@
-# Apple Sales SQL Analysis
+#  Apple Sales Analytics - End-to-End Data Analytics Project
 
-This project analyzes an Apple retail sales dataset using PostgreSQL.
+This repository showcases a complete End-to-End Data Analytics workflow using a real-world Apple retail sales dataset.
 
-## Dataset Tables
+The same dataset is used throughout the project to learn and apply SQL, NumPy, Pandas, and Power BI, following the complete business analytics pipeline from raw data to dashboard creation.
+
+---
+
+# 📂 Dataset
+
+The project contains the following tables:
+
 - Sales
 - Products
 - Stores
 - Category
 - Warranty
 
-## Skills Used
+---
+
+# 🛠 Technologies Used
+
+- PostgreSQL
+- Python
+- NumPy
+- Pandas
+- Power BI
+- Jupyter Notebook
+- Git & GitHub
+
+---
+
+# 📁 Project Structure
+
+```text
+Apple-Sales-Analytics-End-to-End/
+
+├── data/
+│   ├── sales.xlsx
+│   ├── products.xlsx
+│   ├── stores.xlsx
+│   ├── category.xlsx
+│   └── warranty.xlsx
+│
+├── sql/
+│
+├── notebooks/
+│   ├── numpy/
+│   └── pandas/
+│
+├── powerbi/
+│
+├── docs/
+│
+├── README.md
+└── requirements.txt
+```
+
+---
+
+# 📚 Learning Roadmap
+
+## SQL
+
 - SELECT
 - WHERE
+- ORDER BY
 - GROUP BY
-- JOINS
+- HAVING
 - Aggregate Functions
+- JOINS
 - Date Functions
 - CTEs
 - Subqueries
-- HAVING
 - Window Functions
 
-  ## Window Functions Practice
+---
 
-Completed practice on:
+## NumPy
 
-- ROW_NUMBER()
-- RANK()
-- Running Total using SUM() OVER()
-- PARTITION BY
-- ORDER BY in Window Functions
+- Array Basics
+- Shape, Size & Dimensions
+- Indexing & Slicing
+- Reshaping
+- Broadcasting
+- Aggregation
+- Boolean Masking
+- Sorting
+- Statistics
+- Business Practice
 
-Sample business questions solved:
+---
 
-- Show row numbers within each store
-- Rank products by sales volume
-- Calculate running totals by store
+## Pandas
 
-## Project Overview
-This repository contains solutions to 50+ business-oriented SQL questions using real-world retail sales data.
+- Series & DataFrame
+- Data Cleaning
+- Missing Values
+- Filtering
+- String Functions
+- DateTime
+- GroupBy
+- Merge & Join
+- Pivot Table
+- Apply
+- EDA
 
+---
 
-## Project Status
+## Power BI
+
+- Power Query
+- Data Cleaning
+- Data Modeling
+- DAX
+- Dashboard Design
+- Business Insights
+
+---
+
+# 🎯 Project Goal
+
+Build one complete Data Analytics project using the same business dataset across every technology.
+
+Workflow:
+
+Raw Data → SQL → NumPy → Pandas → Power BI Dashboard
+
+---
+
+# 🚀 Project Status
+
+## SQL
 
 - [x] SQLBolt Completed
-- [x] PostgreSQL Setup and Dataset Import
+- [x] PostgreSQL Setup
 - [x] Dataset Imported
 - [x] GitHub Repository Created
-- [ ] 50 SQL Questions Completed
-- [ ] CTE Practice
 - [x] Window Functions
-- [ ] Final Project Documentation
+- [ ] 50+ Business SQL Questions
+- [ ] Final SQL Documentation
 
+## NumPy
 
-## Sample Query Results
+- [ ] Array Basics
+- [ ] Indexing & Slicing
+- [ ] Reshaping
+- [ ] Broadcasting
+- [ ] Aggregation
+- [ ] Boolean Masking
+- [ ] Sorting & Statistics
+- [ ] Business Practice
+- [ ] Final NumPy Notebook
 
-### Multi-Table JOIN
+## Pandas
 
-![JOIN Result](Screenshot%20(146).png)
+- [ ] Data Loading
+- [ ] Data Cleaning
+- [ ] Filtering
+- [ ] Missing Values
+- [ ] GroupBy
+- [ ] Merge & Join
+- [ ] Pivot Table
+- [ ] EDA
+- [ ] Final Analysis Notebook
 
-### GROUP BY Analysis
+## Power BI
 
-![GROUP BY Result](Screenshot%20(147).png)
+- [ ] Power Query
+- [ ] Data Model
+- [ ] DAX
+- [ ] Dashboard
+- [ ] Business Report
 
-### Subquery Example
+---
 
-![Subquery Result](Screenshot%20(148).png)
+# 📈 Repository Progress
 
-### Subquery with HAVING
+- [x] Repository Created
+- [x] Dataset Added
+- [ ] SQL Module Completed
+- [ ] NumPy Module Completed
+- [ ] Pandas Module Completed
+- [ ] Power BI Dashboard Completed
+- [ ] Documentation Completed
+- [ ] End-to-End Data Analytics Project Completed
 
-![Subquery with HAVING](Screenshot%20(186).png)
+---
 
-### Date Functions Analysis
+# 📌 Future Improvements
 
-![Date Functions](Screenshot%20(185).png)
+- Add Machine Learning Models
+- Deploy Interactive Dashboard
+- Build Streamlit Web Application
+- Add Business Case Study Documentation
 
+---
+
+# ⭐ About This Repository
+
+This repository is being built as a complete learning journey from SQL to Power BI using one business dataset.
+
+Instead of solving isolated problems, every technology is applied to the same dataset to simulate a real-world Data Analyst workflow.
