@@ -137,32 +137,32 @@ Raw Data → SQL → NumPy → Pandas → Power BI Dashboard
 - [x] Dataset Imported
 - [x] GitHub Repository Created
 - [x] Window Functions
-- [ ] 50+ Business SQL Questions
+- [x] 50+ Business SQL Questions
 - [ ] Final SQL Documentation
 
 ## NumPy
 
-- [ ] Array Basics
-- [ ] Indexing & Slicing
-- [ ] Reshaping
-- [ ] Broadcasting
-- [ ] Aggregation
-- [ ] Boolean Masking
-- [ ] Sorting & Statistics
-- [ ] Business Practice
-- [ ] Final NumPy Notebook
+- [x] Array Basics
+- [x] Indexing & Slicing
+- [x] Reshaping
+- [x] Broadcasting
+- [x] Aggregation
+- [x] Boolean Masking
+- [x] Sorting & Statistics
+- [x] Business Practice
+- [x] Final NumPy Notebook
 
 ## Pandas
 
-- [ ] Data Loading
-- [ ] Data Cleaning
-- [ ] Filtering
-- [ ] Missing Values
-- [ ] GroupBy
-- [ ] Merge & Join
-- [ ] Pivot Table
-- [ ] EDA
-- [ ] Final Analysis Notebook
+- [x] Data Loading
+- [x] Data Cleaning
+- [x] Filtering
+- [x] Missing Values
+- [x] GroupBy
+- [x] Merge & Join
+- [x] Pivot Table
+- [x] EDA
+- [x] Final Analysis Notebook
 
 ## Power BI
 
@@ -178,9 +178,9 @@ Raw Data → SQL → NumPy → Pandas → Power BI Dashboard
 
 - [x] Repository Created
 - [x] Dataset Added
-- [ ] SQL Module Completed
-- [ ] NumPy Module Completed
-- [ ] Pandas Module Completed
+- [x] SQL Module Completed
+- [x] NumPy Module Completed
+- [x] Pandas Module Completed
 - [ ] Power BI Dashboard Completed
 - [ ] Documentation Completed
 - [ ] End-to-End Data Analytics Project Completed
